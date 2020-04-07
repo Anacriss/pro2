@@ -2,9 +2,17 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>bienvenidos</title>
   </head>
   <body>
-    bienvenidos
+<header>
+  <nav>
+    <a href="contacto">contacto</a>
+    <a href="saludo">saludo</a>
+  </nav>
+</header>
+
+
+
   </body>
 </html>

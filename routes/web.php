@@ -13,12 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// route::get('/',['as'=>'welcome','uses'=>'WelcomeController']);
+route::get('/', 'WelcomeController@welcome');
 
- Route::get('/', function () {
-  return view('welcome');
-
-});
-
-Route::get('/contacto', function () {
- return view('contacto');
- });
+route::get('contacto', 'ContactoController@contacto');
+route::get('saludo', 'SaludoController@saludo');

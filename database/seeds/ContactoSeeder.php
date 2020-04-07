@@ -9,8 +9,13 @@ class ContactoSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function contactos()
+
     {
-        //
+        DB::table('contactos')->insert([
+            'nombre' => Str::random(10),
+            'apellido' => Str::random(10),
+            'celular' => Str::random(10),
+        ]);
     }
-}
+    }
