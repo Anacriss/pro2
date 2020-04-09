@@ -50,8 +50,9 @@ class ContactoController extends Controller
     */
    public function show($id)
    {
-       $saludos = Contacto::find($id);
-       return view('contactos', compact('id'));
+       $contacto = Contacto::find($id);
+       return view('detallec');
+
    }
 
    /**
@@ -62,6 +63,14 @@ class ContactoController extends Controller
     */
    public function edit($id)
    {
+     $editarContacto = Contacto::all();
+
+     $saludos = Saludo::find($id);
+
+     //Esto lo hago para lograr atrapar el genero que esta guardado en la base de datos, la idea luego es poder enviarlo a la vista
+     $tipoSaludo = $tipoSaludo->tipo_saludo_id;
+     $tipoSaludo = Tipo_Saludo::find($id);
+      return back();
 
    }
 
@@ -85,8 +94,8 @@ class ContactoController extends Controller
     */
    public function destroy($id)
    {
-       $contactos = Contacto::find($id)->delete();
-
+       $eliminarContacto = Contacto::find($id)->delete();
+       $eliminarContacto = dalete;
        return back();
    }
 

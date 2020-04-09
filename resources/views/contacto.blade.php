@@ -1,69 +1,144 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>contactos</title>
-  </head>
-  <body>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
 
-    <table id="contactos"border="1">
+th, td {
+  text-align: left;
+  padding: 16px;
+}
 
-                           <thead>
-                         <tr>
-                             <th>ID</th>
-                             <th>Nombre</th>
-                             <th>apellido</th>
-                             <th>Dni</th>
-                             <th>saludos</th>
-
-                         </tr>
-                     </thead>
-
-                     <tbody>
-                           @foreach ($contactos as $contacto)
-                           <tr>
-                               <td>{{ $contacto->id }}</td>
-                               <td>{{ $contacto->nombre }}</td>
-                               <td>{{ $contacto->apellido }}</td>
-                               <td>{{ $contacto->dni }}</td>
-                               <td>{{ $contacto->saludos}}</td>
-                               <td>
-                                 @csrf
-                               </td>
-                           </tr>
-                           @endforeach
-                     </tbody>
-
-           </table>
-
-           <form method="post" action="{{ route('contacto.store') }}">
-               {{ csrf_field() }}
-             <label for="nombre">
-               nombre
-               <input type="text" name="nombre">
-             </label>
-
-             <label for="apellido">
-               apellido
-               <input type="text" name="apellido">
-             </label>
-
-             <label for="dni">
-               dni
-               <input type="text" name="dni">
-
-             </label>
-
-          
-
-              <input type="submit" value="enviar">
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 
+</style>
 
-           </form>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>lista de contactos</h2>
+<p>contacto</p>
 
 
+  <table class="table" >
+      <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>apellido</th>
+            <th>Dni</th>
 
 
-  </body>
+            <th>ver</th>
+            <th>editar</th>
+            <th>eliminar</th>
+          </tr>
+      </thead>
+      <tbody>
+
+          @foreach ($contactos as $contacto)
+              <tr>
+                  <td>
+                      {{$contacto->id}}
+                  </td>
+                  <td>
+                      {{$contacto->nombre}}
+                  </td>
+                  <td>
+                      {{$contacto->apellido}}
+                  </td>
+                  <td>
+                      {{$contacto->dni}}
+                  </td>
+
+                  <td>
+                      <a href="/detalleContacto/{{$contacto->id}}">Ver</a>
+                  </td>
+                  <td>
+                      <a href="/editarContacto/{{$contacto->id}}/update">Editar</a>
+                  </td>
+                  <td>
+                      <a href="/eliminarContacto/{{$contacto->id}}">Eliminar</a>
+                  </td>
+                  </tr>
+              @endforeach
+
+      </tbody>
+  </table>
+
+</body>
 </html>

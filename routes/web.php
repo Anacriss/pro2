@@ -18,6 +18,7 @@ route::get('/', 'WelcomeController@welcome');
 
 route::get('contacto', 'ContactoController@contacto');
 route::post('contacto/store','ContactoController@store')->name('contacto.store');
+route::get('eliminarContacto/{$id}','ContactoController@destroy');
 
 route::get('saludo', 'SaludoController@saludo');
 route::post('saludo/store','SaludoController@store')->name('saludo.store');
