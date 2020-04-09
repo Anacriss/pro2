@@ -17,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 route::get('/', 'WelcomeController@welcome');
 
 route::get('contacto', 'ContactoController@contacto');
+route::post('contacto/store','ContactoController@store')->name('contacto.store');
+
 route::get('saludo', 'SaludoController@saludo');
+route::post('saludo/store','SaludoController@store')->name('saludo.store');

@@ -20,6 +20,8 @@ class CreateSaludosTable extends Migration
             $table->string('celular');
             $table->integer('contacto_id')->unsigned();
             $table->foreign('contacto_id')->references('id')->on('contactos')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('tipo_saludos_id')->unsigned();
+            $table->foreign('tipo_saludos_id')->references('id')->on('tipo_saludos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
